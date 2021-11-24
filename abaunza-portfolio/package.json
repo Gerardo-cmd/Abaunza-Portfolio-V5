@@ -1,0 +1,16 @@
+{
+  "name": "abaunza-portfolio",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.6.4",
+    "three": "^0.134.0"
+  },
+  "dependencies": {
+    "three": "^0.134.0"
+  }
+}
