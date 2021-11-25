@@ -187,8 +187,25 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load('/space.gif');
 scene.background = spaceTexture;
 
+const resize = (renderer) => {
+  const canvas = renderer.domElement;
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+  const needResize = canvas.width !== width || canvas.height !== height;
+  if (needResize) {
+      renderer.setSize(width, height, false);
+  }
+  return needResize;
+}
+
 // Scroll Animation
 const moveCamera= () => {
+  //Check if we need to resize
+  if (resize(renderer)) {
+    let canvas = renderer.domElement;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+  }
   const t = document.body.getBoundingClientRect().top;
   //We need the max scroll depth to lead to the desired coordinates in our solar system!
   const zRotation = window.matchMedia("(max-width: 767px)").matches ? -0.0019 : -0.005;
@@ -206,8 +223,24 @@ const moveCamera= () => {
 document.body.onscroll = moveCamera;
 moveCamera();
 
+
+
+
+window.addEventListener( 'resize', function() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize( window.innerWidth, window.innerHeight )
+})
+
 // Animation Loop
 const animate = () => {
+  //Check if we need to resize
+  if (resize(renderer)) {
+    let canvas = renderer.domElement;
+    camera.aspect = canvas.clientWidth / canvas.clientHeight;
+    camera.updateProjectionMatrix();
+  }
   requestAnimationFrame(animate);
   mercury.rotation.y += 0.005;
   venus.rotation.y += 0.005;
