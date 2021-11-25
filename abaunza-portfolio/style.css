@@ -4,6 +4,7 @@
 
 a {
   color: white;
+  text-decoration: none;
 }
 
 a:hover {
@@ -97,13 +98,13 @@ section {
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.p {
+  text-decoration: none;
+}
+
+.p:hover {
+  color: white;
+  cursor:default;
 }
 
 .typewriter {
@@ -111,7 +112,7 @@ section {
   border-right: .15em solid orange; /* The typwriter cursor */
   white-space: nowrap; /*Keeps the content on a single line*/
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+  letter-spacing: .10em; /* Adjust as needed */
   animation: 
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;

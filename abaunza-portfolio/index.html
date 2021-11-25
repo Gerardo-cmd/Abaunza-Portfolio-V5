@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerardo Abaunza</title>
+    <script src="https://kit.fontawesome.com/e065878c7c.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <canvas id="bg"></canvas>
@@ -15,21 +16,19 @@
         <p class="typewriter">Please scroll down &darr;</p>
       </header>
 
-      <section>
+      <section class="left">
         <h2>Computer Science Background</h2>
         <p>
         I am a senior Computer Science student at George Mason University. 
         It is there that I learned Java and C as well as various other topics such as data structures, 
         database concepts, and algorithms. It really helped me establish the fundamentals of programming in general.
-        I currently reside in Centreville, Virginia 
-        and am looking to work remotely or anywhere in the Northern Virginia and DC Metropolitan Area 
+        I am currently looking to work remotely or anywhere in the Northern Virginia and DC Metropolitan Area 
         as a front-end developer, back-end developer, or software engineer!
         </p>
         <h2>Independent Learner</h2>
         <p>
         While I have studied a copious amount of things at George Mason University, a good portion of my skills have been from learning independently.
-        This includes most of the skills needed for web design. In my personal time, I taught myself through online resources and 
-        by working on personal projects, which are the ones you can view on this portfolio. 
+        This includes most of the skills needed for web design.
         I started by learning Javascript, HTML, and CSS. Once I got comfortable with those languages, 
         I moved on to back-end development with Node.js/Express and then to frameworks for front-end and unit testing.
         I'm always learning new things, both in and out of school as I'm eager to learn as much as I can.
@@ -68,11 +67,56 @@
         </div>
       </section>
 
-      <section class="light">
-        <h2>👩🏽‍🚀 Projects</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+      <section class="light container">
+        <h2>Projects</h2>
+        <div>
+        <div class="card" id = "Weather App">
+          <div>
+              <h2>Weather App</h2>
+              <p>
+                  This application allows the user to input any location and recieve the current forecast for that location!
+                  It will include the temperature it is outside, what temperature it feels like, the humidity, and the visibility.
+                  It accomplishes this by using two APIs, which are linked to in the Weather App's About 
+                  page. <a style="text-decoration: underline;" href="https://abaunza-weather-application.herokuapp.com/" target="_blank" rel="noreferrer">Click here to visit the Weather App</a>
+              </p>
+          </div>
+        </div>
+        <div class="card" id = "Recipe App">
+          <div>
+              <h2>Recipe App</h2>
+              <p>
+                  Users must sign up and create an account by inserting their name, email, and creating a new password.
+                  This application allows users to save their own recipes as well as edit them and delete them.
+                  Users are also able to sort their recipe by type (which is the default sorting method), alphabetically, and by last created.
+                  The database is on Heroku so logging in will take a bit of time but afterwards everything will work 
+                  normally. <a style="text-decoration: underline;" href="https://recipe-app-jg.netlify.app/" target="_blank" rel="noreferrer">Click here to visit the Recipe App</a>
+              </p>
+          </div>
+        </div>
+        <div class="card" id = "Charity Microservice">
+          <div>
+              <h2>Charity Microservice</h2>
+              <p>
+                  Users can use this api via postman, insomnia, or in their backend to get charities and save their favorites.
+                  This microservice has the documentation for all of the endpoints.
+                  Users are also able to sort charities by category or search them by ein. The microservice is hosted on 
+                  Heroku. <a style="text-decoration: underline;" href="https://gerardo-abaunza-swe432-hw2.herokuapp.com/" target="_blank" rel="noreferrer">Click here to visit the Charity Microservice.</a>
+              </p>
+          </div>
+        </div>
+        <div class="card" id = "Solar System">
+          <div>
+              <h2>Solar System App</h2>
+              <p>
+                  This application was made using React, Node.js, and Firebase! 
+                  It provides information to users about our solar system. 
+                  One can look at the moons or the planets in our solar system and learn more about them.
+                  Because this is hosted on heroku, it may take a while for the website to boot up when first visiting 
+                  it. <a style="text-decoration: underline;" href="https://solar-system-firebase.herokuapp.com/" target="_blank" rel="noreferrer">Click here to visit the Solar System App</a>
+              </p>
+          </div>
+        </div>
+      </div>
       </section>
 
       <section class="left">
@@ -92,11 +136,19 @@
 
       <section class="left">
         <h2>Contact Me</h2>
-        <a href="https://www.linkedin.com/in/gerardo-abaunza-abaaa0170/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/Gerardo-cmd" target="_blank">GitHub</a>
-        
+        <span>
+          <a href="https://www.linkedin.com/in/gerardo-abaunza-abaaa0170/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn </a>
+        </span>
+        <span>
+          <a href="https://github.com/Gerardo-cmd" target="_blank">| <i class="fab fa-github"></i> GitHub </a>
+        </span>
+        <span>
+          <a class="p">| gerardoabaunza2015@gmail.com</a>
+        </span>
       </section>
     </main>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

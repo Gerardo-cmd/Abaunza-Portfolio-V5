@@ -3,7 +3,6 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 // Setup
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
@@ -21,7 +20,7 @@ const normalTexture = new THREE.TextureLoader().load('normal.jpg');
 
 // Sun
 const sun = new THREE.Mesh(
-  new THREE.SphereGeometry(40, 32, 32),
+  new THREE.SphereGeometry(42, 32, 32),
   new THREE.MeshStandardMaterial({ color: 0xeae19d })
 );
 scene.add(sun);
@@ -37,7 +36,7 @@ const mercury = new THREE.Mesh(
   })
 );
 scene.add(mercury);
-mercury.position.z = -10;
+mercury.position.z = -8;
 mercury.position.setX(6);
 
 // Venus
@@ -47,8 +46,8 @@ const venus = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ map: venusTexture, color: 0xba6d10 })
 );
 scene.add(venus);
-venus.position.z = -4;
-venus.position.setX(-9);
+venus.position.z = -6;
+venus.position.setX(-11);
 
 // Earth
 const earthTexture = new THREE.TextureLoader().load('earth.jfif');
@@ -57,8 +56,8 @@ const earth = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ map: earthTexture})
 );
 scene.add(earth);
-earth.position.z = 1;
-earth.position.setX(5);
+earth.position.z = 0;
+earth.position.setX(-12);
 
 // Moon
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
@@ -70,8 +69,8 @@ const moon = new THREE.Mesh(
   })
 );
 scene.add(moon);
-moon.position.z = 2;
-moon.position.setX(5.5);
+moon.position.z = 1.2;
+moon.position.setX(-11);
 moon.position.setY(1);
 
 // Mars
@@ -80,54 +79,55 @@ const mars = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ normalMap: normalTexture, color: 0xe0530d })
 );
 scene.add(mars);
-mars.position.z = 0;
-mars.position.setX(20);
+mars.position.z = 4;
+mars.position.setX(-2);
 
 // Jupiter
 const jupiterTexture = new THREE.TextureLoader().load('jupiter.png');
 const jupiter = new THREE.Mesh(
-  new THREE.SphereGeometry(3.2, 32, 32),
+  new THREE.SphereGeometry(6, 32, 32),
   new THREE.MeshStandardMaterial({ map: jupiterTexture, color: 0xffcf91 })
 );
 scene.add(jupiter);
-jupiter.position.z = 8;
-jupiter.position.setX(8);
+jupiter.position.z = 15;
+jupiter.position.setX(-8);
 
 // saturn
 const saturn = new THREE.Mesh(
-  new THREE.SphereGeometry(8, 32, 32),
+  new THREE.SphereGeometry(4.5, 32, 32),
   new THREE.MeshStandardMaterial({ color: 0xe5de97 })
 );
 scene.add(saturn);
-saturn.position.z = 12;
-saturn.position.setX(-12);
+saturn.position.z = 32;
+saturn.position.setX(8);
+
 // Saturn's Rings
 const rings = new THREE.Mesh(
-  new THREE.TorusGeometry(11, 1.7, 2, 100),
+  new THREE.TorusGeometry(7, 1.7, 2, 100),
   new THREE.MeshStandardMaterial({ color: 0x7f7b4c })
 );
 
 scene.add(rings);
-rings.position.z = 12;
-rings.position.setX(-12);
+rings.position.z = 32;
+rings.position.setX(8);
 
 // Uranus
 const uranus = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 32, 32),
+  new THREE.SphereGeometry(4, 32, 32),
   new THREE.MeshStandardMaterial({ color: 0xa8f4ea })
 );
 scene.add(uranus);
-uranus.position.z = 36;
-uranus.position.setX(18);
+uranus.position.z = 43;
+uranus.position.setX(-10);
 
 // Uranus's Rings
 const uRings = new THREE.Mesh(
-  new THREE.TorusGeometry(8, 0.1, 6, 100),
+  new THREE.TorusGeometry(5.5, 0.1, 6, 100),
   new THREE.MeshStandardMaterial({ color: 0xe0fffa })
 );
 scene.add(uRings);
-uRings.position.z = 36;
-uRings.position.setX(18);
+uRings.position.z = 43;
+uRings.position.setX(-10);
 
 // Neptune
 const neptune = new THREE.Mesh(
@@ -135,8 +135,24 @@ const neptune = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: 0x3d94ff })
 );
 scene.add(neptune);
-neptune.position.z = 50;
-neptune.position.setX(12);
+neptune.position.z = 64;
+neptune.position.setX(2);
+
+// Eating Avatar
+const eatingTexture = new THREE.TextureLoader().load('eating.jpg');
+const eating = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: eatingTexture }));
+scene.add(eating);
+eating.position.setZ(21);
+eating.position.setX(-50);
+eating.position.setY(2);
+
+// Sitting Avatar
+const sittingTexture = new THREE.TextureLoader().load('sitting.jpg');
+const sitting = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: sittingTexture }));
+scene.add(sitting);
+sitting.position.setZ(33);
+sitting.position.setX(-50);
+sitting.position.setY(-1.5);
 
 // Lights
 const pointLight = new THREE.PointLight(0xffffff);
@@ -174,9 +190,9 @@ const moveCamera= () => {
   moon.rotation.x += 0.005;
   moon.rotation.y += 0.005;
   moon.rotation.z += 0.005;
-  camera.position.z = t * -0.01;
-  camera.position.x = t * 0.00000;
-  camera.rotation.y = t * 0.00009;
+  camera.position.z = t * -0.005;//-0.1; //Controls z-axis (depth)
+  camera.position.x = t * 0.01;//0.005; //Controls vertical
+  camera.rotation.y = t * 0.00025;// 0.0001; //Controls horizontally
 }
 
 document.body.onscroll = moveCamera;
@@ -191,11 +207,15 @@ const animate = () => {
   mars.rotation.y += 0.005;
   jupiter.rotation.y += 0.003;
   saturn.rotation.y += 0.002;
-  rings.rotation.x += 0.003;
-  rings.rotation.y += 0.003;
+  rings.rotation.x += 0.002;
+  rings.rotation.y += 0.002;
   // rings.rotation.z += 0.005;
-  uRings.rotation.y += 0.0035;
+  uRings.rotation.y += 0.003;
   moon.rotation.x += 0.005;
+  eating.rotation.y += -0.003;
+  eating.rotation.z += -0.003;
+  sitting.rotation.y += -0.002;
+  // sitting.rotation.z += 0.001;
   // controls.update();
   renderer.render(scene, camera);
 }
