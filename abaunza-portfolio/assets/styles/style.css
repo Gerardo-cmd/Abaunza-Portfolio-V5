@@ -1,5 +1,6 @@
 * {
   font-family:'Courier New', Courier, monospace;
+  border: 1px solid red;
 }
 
 a {
@@ -57,7 +58,8 @@ header {
 }
 
 section {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   background: var(--dark-bg);
   font-size: 1.25rem;
   line-height: 1.5;
