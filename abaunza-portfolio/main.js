@@ -106,7 +106,7 @@ saturn.position.setX(8/ratio);
 
 // Saturn's Rings
 const rings = new THREE.Mesh(
-  new THREE.TorusGeometry(7/ratio, 1.7/ratio, 2/ratio, 100),
+  new THREE.TorusGeometry(7/ratio, 2/ratio, 2, 100),
   new THREE.MeshStandardMaterial({ color: 0x7f7b4c })
 );
 
@@ -138,7 +138,7 @@ const neptune = new THREE.Mesh(
   new THREE.MeshStandardMaterial({ color: 0x3d94ff })
 );
 scene.add(neptune);
-neptune.position.z = 64/ratio;
+neptune.position.z = 62/ratio;
 neptune.position.setX(2/ratio);
 
 // Eating Avatar
@@ -210,7 +210,7 @@ const moveCamera= () => {
   //We need the max scroll depth to lead to the desired coordinates in our solar system!
   const zRotation = window.matchMedia("(max-width: 767px)").matches ? -0.0019 : -0.005;
   const xRotation = window.matchMedia("(max-width: 767px)").matches ? 0.003 : 0.014;
-  const yRotation = window.matchMedia("(max-width: 767px)").matches ? 0.00015 : 0.00033;
+  const yRotation = window.matchMedia("(max-width: 767px)").matches ? 0.00014 : 0.00035;
 
   moon.rotation.x += 0.005;
   moon.rotation.y += 0.005;
