@@ -16,7 +16,7 @@ camera.position.setX(-3);
 
 renderer.render(scene, camera);
 
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const normalTexture = new THREE.TextureLoader().load('//normal.jpg');
 
 // Sun
 const sun = new THREE.Mesh(
@@ -40,7 +40,7 @@ mercury.position.z = -8;
 mercury.position.setX(6);
 
 // Venus
-const venusTexture = new THREE.TextureLoader().load('venus.jpg');
+const venusTexture = new THREE.TextureLoader().load('/venus.jpg');
 const venus = new THREE.Mesh(
   new THREE.SphereGeometry(1.1, 32, 32),
   new THREE.MeshStandardMaterial({ map: venusTexture, color: 0xba6d10 })
@@ -50,7 +50,7 @@ venus.position.z = -6;
 venus.position.setX(-11);
 
 // Earth
-const earthTexture = new THREE.TextureLoader().load('earth.jfif');
+const earthTexture = new THREE.TextureLoader().load('/earth.jfif');
 const earth = new THREE.Mesh(
   new THREE.SphereGeometry(1.2, 32, 32),
   new THREE.MeshStandardMaterial({ map: earthTexture})
@@ -60,7 +60,7 @@ earth.position.z = 0;
 earth.position.setX(-12);
 
 // Moon
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
+const moonTexture = new THREE.TextureLoader().load('/moon.jpg');
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(0.25, 32, 32),
   new THREE.MeshStandardMaterial({
@@ -83,7 +83,7 @@ mars.position.z = 4;
 mars.position.setX(-2);
 
 // Jupiter
-const jupiterTexture = new THREE.TextureLoader().load('jupiter.png');
+const jupiterTexture = new THREE.TextureLoader().load('/jupiter.png');
 const jupiter = new THREE.Mesh(
   new THREE.SphereGeometry(6, 32, 32),
   new THREE.MeshStandardMaterial({ map: jupiterTexture, color: 0xffcf91 })
@@ -139,7 +139,7 @@ neptune.position.z = 64;
 neptune.position.setX(2);
 
 // Eating Avatar
-const eatingTexture = new THREE.TextureLoader().load('eating.jpg');
+const eatingTexture = new THREE.TextureLoader().load('/eating.jpg');
 const eating = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: eatingTexture }));
 scene.add(eating);
 eating.position.setZ(21);
@@ -147,7 +147,7 @@ eating.position.setX(-50);
 eating.position.setY(2);
 
 // Sitting Avatar
-const sittingTexture = new THREE.TextureLoader().load('sitting.jpg');
+const sittingTexture = new THREE.TextureLoader().load('/sitting.jpg');
 const sitting = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: sittingTexture }));
 scene.add(sitting);
 sitting.position.setZ(33);
@@ -181,7 +181,7 @@ function addStar() {
 Array(200).fill().forEach(addStar);
 
 // Background
-const spaceTexture = new THREE.TextureLoader().load('space.gif');
+const spaceTexture = new THREE.TextureLoader().load('/space.gif');
 scene.background = spaceTexture;
 
 // Scroll Animation
