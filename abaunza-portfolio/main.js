@@ -9,9 +9,8 @@ const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#bg'),
 });
 
+//If on a mobile device, solar system will be smaller
 const ratio = window.matchMedia("(max-width: 767px)").matches ? 2 : 1;
-
-console.log(window.innerHeight);
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -191,16 +190,17 @@ scene.background = spaceTexture;
 // Scroll Animation
 const moveCamera= () => {
   const t = document.body.getBoundingClientRect().top;
+  //We need the max scroll depth to lead to the desired coordinates in our solar system!
   const zRotation = window.matchMedia("(max-width: 767px)").matches ? -0.0019 : -0.005;
-  const xRotation = window.matchMedia("(max-width: 767px)").matches ? 0.0045 : 0.01;
-  const yRotation = window.matchMedia("(max-width: 767px)").matches ? 0.000095 : 0.00025;
-  console.log(t)
-;  moon.rotation.x += 0.005;
+  const xRotation = window.matchMedia("(max-width: 767px)").matches ? 0.003 : 0.014;
+  const yRotation = window.matchMedia("(max-width: 767px)").matches ? 0.00015 : 0.00033;
+
+  moon.rotation.x += 0.005;
   moon.rotation.y += 0.005;
   moon.rotation.z += 0.005;
-  camera.position.z = t * zRotation;//-0.1; //Controls z-axis (depth)
+  camera.position.z = t * zRotation;//-0.1; //Controls z-axis (how far out the camera goes)
   camera.position.x = t * xRotation;//0.005; //Controls vertical
-  camera.rotation.y = t * yRotation;// 0.0001; //Controls horizontally
+  camera.rotation.y = t * yRotation;// 0.0001; //Controls horizontally (the twist)
 }
 
 document.body.onscroll = moveCamera;
@@ -217,13 +217,11 @@ const animate = () => {
   saturn.rotation.y += 0.002;
   rings.rotation.x += 0.002;
   rings.rotation.y += 0.002;
-  // rings.rotation.z += 0.005;
   uRings.rotation.y += 0.003;
   moon.rotation.x += 0.005;
   eating.rotation.y += -0.003;
   eating.rotation.z += -0.003;
   sitting.rotation.y += -0.002;
-  // sitting.rotation.z += 0.001;
   // controls.update();
   const canvas = renderer.domElement;
   camera.aspect = canvas.clientWidth / canvas.clientHeight;
@@ -231,21 +229,5 @@ const animate = () => {
 
   renderer.render(scene, camera);
 }
-
-var body = document.body, html = document.documentElement;
-const percentage = window.matchMedia("(max-width: 767px)").matches ? 93.3 : 88.6;
-const maxScrollDepth = html.scrollHeight * percentage;
-//We need the max scroll depth to lead to the desired coordinates in our solar system!
-
-
-if (window.matchMedia("(max-width: 767px)").matches) {
-  // The viewport is less than 768 pixels wide and we need to go for 93%
-  console.log("This is a mobile device.");
-}
-else {
-  console.log("This is NOT a mobile device");
-}
-
-console.log(`Height of the window is ${html.scrollHeight}`)
 
 animate();

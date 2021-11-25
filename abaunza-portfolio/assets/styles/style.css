@@ -18,7 +18,7 @@ canvas {
 } */
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
+  --dark-bg: rgba(15, 15, 15, 0.9);
   --spacing: 350px;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
@@ -65,7 +65,7 @@ section {
 }
 
 .container {
-  width: 70%;
+  width: 85%;
 }
 
 .grid {
@@ -80,7 +80,6 @@ section {
 
 .myCard {
   margin: 1rem;
-  margin-bottom: 3rem;
   flex-basis: 45%;
   padding: 0.5rem;
   text-align: left;
