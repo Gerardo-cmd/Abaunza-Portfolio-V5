@@ -210,7 +210,7 @@ const moveCamera= () => {
   //We need the max scroll depth to lead to the desired coordinates in our solar system!
   const zRotation = window.matchMedia("(max-width: 767px)").matches ? -0.0019 : -0.005;
   const xRotation = window.matchMedia("(max-width: 767px)").matches ? 0.003 : 0.014;
-  const yRotation = window.matchMedia("(max-width: 767px)").matches ? 0.00014 : 0.00035;
+  const yRotation = window.matchMedia("(max-width: 767px)").matches ? 0.000145 : 0.00035;
 
   moon.rotation.x += 0.005;
   moon.rotation.y += 0.005;
